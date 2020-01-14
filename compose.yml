@@ -1,0 +1,20 @@
+version: '3'
+services:
+  redis:
+    image: venkhat/redis:v1
+    container_name: redis
+    command: "/usr/bin/supervisord -c /etc/supervisord.conf"
+    hostname: redis
+    volumes:
+      - /home/venkhat/docker/redis/data:/opt/redis/data
+      - /home/venkhat/docker/redis/log:/opt/redis/log
+      - /home/venkhat/docker/redis/conf/main.conf:/opt/redis/conf/redis.conf
+      - /home/venkhat/docker/supervisor/conf/main.conf:/etc/supervisord.conf
+      - /home/venkhat/docker/supervisor/conf/redis.ini:/etc/supervisord.d/redis.ini
+    networks:
+      venkhat-net:
+        ipv4_address: 100.1.1.10
+networks:
+  venkhat-net:
+    external:
+      name: venkhat-net
