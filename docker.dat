@@ -25,3 +25,8 @@ Docker:
 			docker volume ls --> To list down the volumes
 			docker volume create volume_name --> To create a volume
 			docker volume inspect volume_name --> To inspect the volume
+
+	* Docker Network:
+			The purpose is to communicate the containers with the host.
+			If we do not mention the network, containers will use default bridge network.
+			The Containers under default bridge network can communicate with each other by their IP's. It can't communicate with the containers by their container names under default bridge network.
