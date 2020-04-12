@@ -15,6 +15,8 @@ Docker:
 			RUN --> Run contains the packages which needs to install. Run command will be executed while building the docker file.
 			CMD --> CMD command will be executed while running the containers. If 2 CMD commands are present in the docker file, it will take the last CMD command while executing the containers. We can change the CMD parameters.
 			Entrypoint --> It is also same like CMD, but we can't change the parameters. If we want to change the parameter, then need to pass the --entrypoint option while running the container.
+			Copy --> It will copy the file from localhost to docker image
+			Add --> It will also copy the file from local host to docker image but it will also unarchive the data.
 
 	* Docker-compose:
 			docker-compose config --> The purpose is to validate the compose file.
