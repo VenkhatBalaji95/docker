@@ -1,0 +1,25 @@
+Docker:
+
+	* Basic commands:
+			docker info --> List the full information about docker
+			docker system df --> List the disk usage
+			docker stat --> List the all containers statistics i.e., CPU, Memory usage etc,.
+			docker system prune --> remove the unused data
+
+	* Container commands:
+			docker container pause containerID --> To pause the container. If the container is paused, we cant type anything inside the container
+			docker container unpause container ID --> To unpause the container
+			docker container stats containerID --> To list the statistics of a container.
+
+	* Docker File:
+			RUN --> Run contains the packages which needs to install. Run command will be executed while building the docker file.
+			CMD --> CMD command will be executed while running the containers. If 2 CMD commands are present in the docker file, it will take the last CMD command while executing the containers. We can change the CMD parameters.
+			Entrypoint --> It is also same like CMD, but we can't change the parameters. If we want to change the parameter, then need to pass the --entrypoint option while running the container.
+
+	* Docker-compose:
+			docker-compose config --> The purpose is to validate the compose file.
+
+	* Docker Volume:
+			docker volume ls --> To list down the volumes
+			docker volume create volume_name --> To create a volume
+			docker volume inspect volume_name --> To inspect the volume
