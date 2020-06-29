@@ -1,0 +1,1 @@
+sudo docker container run -d -p source_port_number:27017 -v local_data_directory:/data/db --name container_name mongodb_image_name
