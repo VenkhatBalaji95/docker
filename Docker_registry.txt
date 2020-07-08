@@ -1,0 +1,20 @@
+Step 1: Install docker in all the nodes.
+Step 2: Install docker and docker compose in the node where we need to host our Docker Registry.
+Step 3: ssh to the Docker registry node.
+Step 4: Create docker compose file for docker registry and docker registry UI in the Docker registry node.
+Step 5: Up the docker compose file in Docker registry node.
+Step 6: Make sure two (Docker registry and Docker registry UI) containers are running in Docker registry node.
+Step 7: Check whether we can access Docker registry UI in web. (Example: http://13.235.81.40:8080) 
+Step 8: ssh to the normal node where docker is installed.
+Step 9: Add the IP address and docker registry server name in normal node in /etc/hosts path. (Example: 13.235.81.40  venkhat.local.com)
+Step 10: Authenticate the docker registry server name in normal node in /etc/docker/daemon.json. Add it if daemon.json is not present. 
+	Example: {
+					"insecure-registries": ["venkhat.local.com:5000"]
+			 }
+Step 11: Restart docker service after adding daemon.josn in the normal node.
+Step 12: Tag the image which we need to push from normal node to docker registry node. 
+		 Syntax: sudo docker tag image_name docker_registry_server_name:port/user_name/image_name:version
+		 (Example: sudo docker tag alpine:latest venkhat.local.com:5000/venkhat/alpine-venkhat:v1)
+Step 13: To pull from docker registry node.
+		 Syntax: sudo image pull docker_registry_server_name:port/user_name/image_name:version
+		 Example: sudo docker image pull venkhat.local.com:5000/venkhat/alpine-venkhat:v1
